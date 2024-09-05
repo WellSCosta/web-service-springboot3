@@ -1,6 +1,7 @@
 package com.wellscosta.web_service_udemy.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.wellscosta.web_service_udemy.entities.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,9 @@ public class Order implements Serializable {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     private Instant moment;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
