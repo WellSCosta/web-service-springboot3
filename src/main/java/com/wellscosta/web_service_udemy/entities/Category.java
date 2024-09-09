@@ -1,13 +1,12 @@
 package com.wellscosta.web_service_udemy.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_category")
@@ -20,8 +19,10 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    @Transient
-    private Set<Product> products = new HashSet<>();
+    @JsonIgnore
+    @ManyToMany(mappedBy = "categories")
+    @Setter(AccessLevel.NONE)
+    private List<Product> products = new ArrayList<>();
 
     public Category(Long id, String name) {
         this.id = id;

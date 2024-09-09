@@ -2,9 +2,7 @@ package com.wellscosta.web_service_udemy.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,6 +25,7 @@ public class User implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "client")
+    @Setter(AccessLevel.NONE)
     private List<Order> orders = new ArrayList<>();
 
     public User(Long id, String name, String email, String phone, String password) {
