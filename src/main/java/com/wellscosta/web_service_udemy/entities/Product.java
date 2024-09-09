@@ -11,6 +11,7 @@ import java.util.Set;
 @Table(name = "tb_product")
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"id"})
 public class Product implements Serializable {
 
     @Id

@@ -5,13 +5,14 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_category")
 @NoArgsConstructor
 @Data
+@EqualsAndHashCode(of = {"id"})
 public class Category implements Serializable {
 
     @Id
@@ -22,7 +23,7 @@ public class Category implements Serializable {
     @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     @Setter(AccessLevel.NONE)
-    private List<Product> products = new ArrayList<>();
+    private Set<Product> products = new HashSet<>();
 
     public Category(Long id, String name) {
         this.id = id;
