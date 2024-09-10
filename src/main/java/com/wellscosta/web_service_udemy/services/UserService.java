@@ -24,6 +24,10 @@ public class UserService {
         return obj.orElseGet(this::defaultUser);
     }
 
+    public User insert(User obj) {
+        return repository.save(obj);
+    }
+
     private User defaultUser() {
         return new User(null, "User Default", "user@email.com", "123456789", "123456");
     }
