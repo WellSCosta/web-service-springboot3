@@ -28,6 +28,10 @@ public class UserService {
         return repository.save(obj);
     }
 
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
+
     private User defaultUser() {
         return new User(null, "User Default", "user@email.com", "123456789", "123456");
     }
