@@ -2,6 +2,7 @@ package com.wellscosta.web_service_udemy.services;
 
 import com.wellscosta.web_service_udemy.entities.User;
 import com.wellscosta.web_service_udemy.repositories.UserRepository;
+import com.wellscosta.web_service_udemy.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,7 @@ public class UserService {
 
     public User findById(Long id) {
         Optional<User> obj = repository.findById(id);
-
-        return obj.orElseGet(this::defaultUser);
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User obj) {
@@ -42,9 +42,5 @@ public class UserService {
         entity.setName(obj.getName());
         entity.setEmail(obj.getEmail());
         entity.setPhone(obj.getPhone());
-    }
-
-    private User defaultUser() {
-        return new User(null, "User Default", "user@email.com", "123456789", "123456");
     }
 }
