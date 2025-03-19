@@ -67,6 +67,21 @@ Para rodar este projeto, você precisará ter instalado em sua máquina:
      <img width="500" heigth="500" src="https://github.com/user-attachments/assets/7c2799b7-8b4d-4a63-a0f2-e190fb320133">
 </p>
 
+## Contribuindo
+
+Contribuições são bem-vindas! Para contribuir com o projeto, por favor siga estes passos:
+
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature ou correção (`git checkout -b feature/nova-feature`).
+3. Faça commit das suas mudanças (`git commit -am 'Adiciona nova feature'`).
+4. Envie suas alterações para o repositório (`git push origin feature/nova-feature`).
+5. Abra um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+
 ## Contato
 
 E-mail: wellscostaofc@gmail.com
